@@ -3,7 +3,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using System.Security.Claims   
 
-<h2>User Login</h2>
+<h2>Welcome to DotNetRPG!</h2>
 <hr/>
-<p>@Html.ActionLink("Register", "Register")</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Welcome, @User.Identity.Name!</p>
+    @using (Html.BeginForm("LogOut", "Account"))
+    {
+        <input type="submit" value="Log Out"/>
+    }
+}
+else
+{
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Log In", "Login")</p>
+}
