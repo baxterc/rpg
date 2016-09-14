@@ -24,6 +24,12 @@ namespace DotNetRPG.Controllers
         }
         //Need a constructor to redefine RoleManager because it's automatically null & doesn't update values when program is run
 
+        public IActionResult Index()
+        {
+            var roles = _db.Roles.ToList();
+            return View(roles);
+        }
+
         public IActionResult Create()
         {
             return View();
@@ -32,12 +38,12 @@ namespace DotNetRPG.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(RoleCreateViewModel model)
         {
-            var role = new IdentityRole();
+            var role = new ApplicationRole();
             role.Name = model.Name;
             IdentityResult result = await _roleManager.CreateAsync(role);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Account");
+                return RedirectToAction("Index");
             }
             else
             {

@@ -1,0 +1,23 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model IEnumerable<Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole>
+
+<h2>Roles Listing </h2>
+
+@Html.ActionLink("Create New Role", "Create")
+<hr />
+<div>
+    @foreach (var role in Model)
+    {
+        <p>
+            <strong>@role.Name | </strong>
+        </p>
+    }
+
+</div>
