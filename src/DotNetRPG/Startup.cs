@@ -52,7 +52,7 @@ namespace DotNetRPG
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("<p>Sorry, an error has occurred.</p><a href='Index'>Home</a>");
             });
         }
     }

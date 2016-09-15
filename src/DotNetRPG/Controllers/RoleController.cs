@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using DotNetRPG.Models;
 using DotNetRPG.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotNetRPG.Controllers
 {
@@ -38,6 +39,7 @@ namespace DotNetRPG.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(RoleCreateViewModel model)
         {
@@ -53,6 +55,7 @@ namespace DotNetRPG.Controllers
                 return View();
             }
         }
+
         public IActionResult AddUser()
         {
             var list = _db.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name}).ToList();
