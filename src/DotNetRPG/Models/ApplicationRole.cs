@@ -8,5 +8,6 @@ namespace DotNetRPG.Models
 {
     public class ApplicationRole : IdentityRole
     {
+
     }
 }

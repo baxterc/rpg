@@ -8,8 +8,8 @@ using DotNetRPG.Models;
 namespace DotNetRPG.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160914211431_Initial")]
-    partial class Initial
+    [Migration("20160915182730_item")]
+    partial class item
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

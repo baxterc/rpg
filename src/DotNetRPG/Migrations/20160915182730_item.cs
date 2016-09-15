@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DotNetRPG.Migrations
 {
-    public partial class Initial : Migration
+    public partial class item : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
